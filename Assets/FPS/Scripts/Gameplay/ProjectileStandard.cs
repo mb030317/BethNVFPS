@@ -46,7 +46,7 @@ namespace Unity.FPS.Gameplay
         public bool InheritWeaponVelocity = false;
 
         [Header("Damage")] [Tooltip("Damage of the projectile")]
-        public float Damage = 40f;
+        public float Damage = 0f;
 
         [Tooltip("Area of damage. Keep empty if you don<t want area damage")]
         public DamageArea AreaOfDamage;
@@ -230,6 +230,8 @@ namespace Unity.FPS.Gameplay
             }
             else
             {
+
+
                 // point damage
                 Damageable damageable = collider.GetComponent<Damageable>();
                 if (damageable)

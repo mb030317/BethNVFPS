@@ -12,6 +12,9 @@ namespace Unity.FPS.Game
 
         public Health Health { get; private set; }
 
+        public PlayerBotManager botManager;
+        public int BotID;
+
         void Awake()
         {
             // find the health component either at the same level, or higher in the hierarchy
@@ -24,6 +27,9 @@ namespace Unity.FPS.Game
 
         public void InflictDamage(float damage, bool isExplosionDamage, GameObject damageSource)
         {
+            Debug.Log("InflictingDamage running");
+            botManager.switchBot(BotID);
+
             if (Health)
             {
                 var totalDamage = damage;
@@ -43,6 +49,8 @@ namespace Unity.FPS.Game
                 // apply the damages
                 Health.TakeDamage(totalDamage, damageSource);
             }
+
+
         }
     }
 }
